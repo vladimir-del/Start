@@ -1,8 +1,8 @@
 //-------------------------------------------------
-//Date: 10.11.2019
+//Date: 14.11.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 4
-// Programming exercise 5
+// Programming exercise 6
 //-------------------------------------------------
 
 #include<stdio.h>
@@ -10,14 +10,14 @@
 int main(void)
 {
     int day;
-    printf("Enter number\n");
+    printf("Enter number days\n");
     scanf("%d", &day);
     int sum, i;
     sum = i = 0;
 
     while (i++<day)
     {
-        sum = sum + i*2;
+        sum = sum + i * i;
         printf("%d in %d day\n", sum, i);
     }
     printf("Exit\n");
