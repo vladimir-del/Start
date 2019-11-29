@@ -1,3 +1,10 @@
+//-------------------------------------------------
+//Date: 27.11.2019
+//Autor: Vlaimir Draga
+//S. Prata. Chapter 5
+// Programming exercise 1
+//-------------------------------------------------
+
 #include <stdio.h>
 
 #define SIZE 26
