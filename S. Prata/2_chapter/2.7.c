@@ -1,12 +1,31 @@
-#include <stdio.h>
+//-------------------------------------------------
+//Date: 24.10.2019
+//Autor: Vlaimir Draga
+//S. Prata. Chapter 2
+// Programming exercise 7
+//-------------------------------------------------
 
-int main (void)
+#include <stdio.h>
+void one_three();
+void two();
+void main (void)
 {
-   
-int hight;
-int cm = 2.54;
-   printf("Enter your hight is in duim = ");
-   scanf("%d", &hight);
-   printf("Your hight in cm = %d\n", hight * cm);
-   return 0;
+    printf("Start now\n");
+    one_three();
+    printf("Right\n");
+
+    return;
+
+}
+
+void one_three()
+{
+    printf("One\n");
+    two();
+    printf("Three\n");
+}
+
+void two()
+{
+    printf("Two\n");
 }

@@ -1,25 +1,31 @@
 //-------------------------------------------------
-//Date: 14.11.2019
+//Date: 27.10.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 4
 // Programming exercise 7
 //-------------------------------------------------
 
 #include<stdio.h>
+#define GAL 3.785
 
-float cube (float num);
 
-int main(void)
+int main()
 {
-    float num;
-    printf("Enter number\n");
-    scanf("%f", &num);
-    printf("%.2f\n", cube(num));
-    return 0;
+const float MILL = 1.609;
+float mill;
+float gal;
 
-}
+printf("Enter milli = ");
+scanf("%f", &mill);
+printf("Enter gallon gazoline = ");
+scanf("%f", &gal);
 
-float cube (float num)
-{
-    return num * num * num;
+float millOnGallon = mill/gal;
+float km100onliter = 100/(millOnGallon*(MILL/GAL));
+
+printf("1 gal your drive %.1f milles\n", millOnGallon);
+printf("100 km your need %.1f liters\n", km100onliter);
+
+return 0;
+
 }

@@ -5,21 +5,22 @@
 // Programming exercise 2
 //-------------------------------------------------
 
-
 #include <stdio.h>
-#include <string.h>
 
-int main()
+int main(void)
 {
-    char name[20];
-    
-    printf("Input your name\n");
-    
-    scanf("%s", name);
-    printf("\"%s\"\n", name); //output"name"
-    printf("\"%20s\"\n", name); //width 20 symbols
-    printf("\"%-20s\"\n", name); //width 20 symbols. Align left
-    printf("\"%*s\"\n", (int)strlen(name) + 3, name); // width strlen(name) + 3. 
+    int num;
+    printf("Enter value from 0 to 127. Num = ");
+    scanf("%d", &num);
+
+    if (num < 0 || num > 127)  
+        {
+        printf("\nYou wrong\n");
+        return 0;
+        }
+
+
+    printf("This number match ASCII symbol = \"%c\"\n", num);
 
     return 0;
 }

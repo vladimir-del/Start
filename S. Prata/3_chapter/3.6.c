@@ -1,24 +1,20 @@
+
 //-------------------------------------------------
-//Date: 27.10.2019
+//Date: 24.10.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 3
 // Programming exercise 6
 //-------------------------------------------------
+#include <stdio.h>
 
-#include<stdio.h>
-#include<float.h>
-
-int main ()
+int main (void)
 {
-
-    float num = 1.0 / 3.0;
-    double num1 = 1.0 / 3.0;
-
-    printf("FLT_DIG = %d, DBL_DIG = %d\n", FLT_DIG, DBL_DIG);
-
-    printf("%.4f\n%.12f\n%.16f\n", num, num, num);
-    printf("----------\n");
-    printf("%.4f\n%.12f\n%.16f\n", num1, num1, num1);
-
+    int volume;
+    double mol = 3e-23;
+    int quart = 950;
+    
+    printf("Enter value volume=");
+    scanf("%d", &volume);
+    printf("In this volume %e molucels\n", (quart / mol) * volume);
     return 0;
 }

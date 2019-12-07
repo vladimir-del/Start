@@ -1,32 +1,34 @@
 //-------------------------------------------------
-//Date: 29.11.2019
+//Date: 14.11.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 5
 // Programming exercise 8
 //-------------------------------------------------
 
-#include <stdio.h>
+#include<stdio.h>
 
-double func(double arg1, double arg2);
+float temperature(double var);
 
 int main(void)
-
 {
-    double num1, num2;
-    printf("Enter two double number\n");
-    int tmp = scanf("%lf %lf", &num1, &num2);
-
-     while(tmp == 2)
+    double far;
+    int y;
+    printf("Enter temperature far > -169.5  or 'q' or any other symbol for exit\n");
+    y = scanf("%lf", &far);
+    while (y > 0 && far > -169.5)
     {
-        double x = func(num1, num2);
-        printf("x = %.6f\n", x);
-        tmp = scanf("%lf %lf", &num1, &num2);
+       temperature(far);
+       printf("End calculating, enter again far\n");
+       scanf("%lf", &far);
     }
+
+    printf("End programm\n");
     return 0;
 }
 
-double func(double arg1, double arg2)
+float temperature (double var)
 {
-    double arg = (arg1 - arg2)/(arg1 + arg2);
-    return arg;
+    printf("Temp for far = %.2f\n", var);
+    printf("Temp for cel = %.2f\n", 1.8 * var + 32);
+    printf("Temp for kel = %.2f\n", 1.8 * var + 32 + 273.16);
 }

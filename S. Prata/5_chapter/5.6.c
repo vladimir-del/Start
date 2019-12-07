@@ -1,25 +1,26 @@
 //-------------------------------------------------
-//Date: 28.11.2019
+//Date: 14.11.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 5
 // Programming exercise 6
 //-------------------------------------------------
 
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
 
 int main(void)
+{
+    int day;
+    printf("Enter number days\n");
+    scanf("%d", &day);
+    int sum, i;
+    sum = i = 0;
 
-{   
-    char str[256];
-    printf("Input string\n");
-    scanf("%s", str);
-
-    int num = strlen(str);
-
-    for (int i = num; i >= 0; i--)
+    while (i++<day)
     {
-        printf("%c\n", str[i]);
+        sum = sum + i * i;
+        printf("%d in %d day\n", sum, i);
     }
+    printf("Exit\n");
     return 0;
+    
 }

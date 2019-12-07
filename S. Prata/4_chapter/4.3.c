@@ -1,26 +1,22 @@
 //-------------------------------------------------
-//Date: 10.11.2019
+//Date: 27.10.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 4
 // Programming exercise 3
 //-------------------------------------------------
 
-#include<stdio.h>
 
-int main(void)
+#include <stdio.h>
+
+
+int main ()
 {
-    int num, week, dayweek;
-    printf("Enter number day or 0 for exit\n");
-    scanf("%d", &num);
-    while (num>0)
-    {
-        week = num / 7;
-        dayweek = num % 7;
-        printf("%d days is %d week and %d days\n", num, week, dayweek);
-        printf("-------------------------\n");
-        printf("\nEnter number day\n");
-        scanf("%d", &num);
-    }
+    float num, num1;
+    scanf ("%f", &num);
 
-    printf("You input invalid number. Exit\n");
+    printf("%.1f or %.1e\n", num, num);
+
+    scanf ("%f", &num1);
+    printf("%.3f or %.3e\n", num1, num1);
+    return 0;
 }

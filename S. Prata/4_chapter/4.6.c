@@ -1,26 +1,24 @@
 //-------------------------------------------------
-//Date: 14.11.2019
+//Date: 27.10.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 4
 // Programming exercise 6
 //-------------------------------------------------
 
 #include<stdio.h>
+#include<float.h>
 
-int main(void)
+int main ()
 {
-    int day;
-    printf("Enter number days\n");
-    scanf("%d", &day);
-    int sum, i;
-    sum = i = 0;
 
-    while (i++<day)
-    {
-        sum = sum + i * i;
-        printf("%d in %d day\n", sum, i);
-    }
-    printf("Exit\n");
+    float num = 1.0 / 3.0;
+    double num1 = 1.0 / 3.0;
+
+    printf("FLT_DIG = %d, DBL_DIG = %d\n", FLT_DIG, DBL_DIG);
+
+    printf("%.4f\n%.12f\n%.16f\n", num, num, num);
+    printf("----------\n");
+    printf("%.4f\n%.12f\n%.16f\n", num1, num1, num1);
+
     return 0;
-    
 }

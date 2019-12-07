@@ -1,26 +1,31 @@
 //-------------------------------------------------
-//Date: 10.11.2019
+//Date: 27.10.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 4
 // Programming exercise 5
 //-------------------------------------------------
 
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
 
-int main(void)
+int main ()
 {
-    int day;
-    printf("Enter number\n");
-    scanf("%d", &day);
-    int sum, i;
-    sum = i = 0;
 
-    while (i++<day)
-    {
-        sum = sum + i*2;
-        printf("%d in %d day\n", sum, i);
-    }
-    printf("Exit\n");
-    return 0;
-    
+char name[40];
+char surname[40];
+printf("Enter your name\n");
+scanf("%s", name);
+printf("Enter your surname\n");
+scanf("%s", surname);
+
+printf("\n%*s %*s\n", (int)strlen(name), name, (int)strlen(surname), surname);
+printf("%*d %*d\n", (int)strlen(name), (int)strlen(name), (int)strlen(surname), (int)strlen(surname));
+
+printf("------------------------\n");
+
+printf("%*s %*s\n", (int)strlen(name), name, (int)strlen(surname), surname);
+printf("%-*d %-*d\n", (int)strlen(name), (int)strlen(name), (int)strlen(surname), (int)strlen(surname));
+
+
+return 0;
 }

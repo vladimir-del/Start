@@ -1,24 +1,25 @@
 //-------------------------------------------------
-//Date: 07.11.2019
+//Date: 24.10.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 4
 // Programming exercise 2
 //-------------------------------------------------
 
-#include<stdio.h>
 
-int main (void)
+#include <stdio.h>
+#include <string.h>
+
+int main()
 {
-    int num, fin;
-    printf("Enter number\n");
-    scanf("%d", &num);
-    fin = num + 11;
-    while (num < fin)
-    {
-        printf("%d ", num);
-        num++;
-    }
-    printf("\nEnd\n");
-    return 0;
+    char name[20];
+    
+    printf("Input your name\n");
+    
+    scanf("%s", name);
+    printf("\"%s\"\n", name); //output"name"
+    printf("\"%20s\"\n", name); //width 20 symbols
+    printf("\"%-20s\"\n", name); //width 20 symbols. Align left
+    printf("\"%*s\"\n", (int)strlen(name) + 3, name); // width strlen(name) + 3. 
 
+    return 0;
 }

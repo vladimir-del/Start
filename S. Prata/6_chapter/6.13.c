@@ -1,7 +1,7 @@
 //-------------------------------------------------
 //Date: 29.11.2019
 //Autor: Vlaimir Draga
-//S. Prata. Chapter 5
+//S. Prata. Chapter 6
 // Programming exercise 13
 //-------------------------------------------------
 

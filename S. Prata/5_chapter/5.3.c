@@ -1,30 +1,26 @@
 //-------------------------------------------------
-//Date: 28.11.2019
+//Date: 10.11.2019
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 5
 // Programming exercise 3
 //-------------------------------------------------
 
-#include <stdio.h>
-#define STR 6
-#define START_VAL 'F'
+#include<stdio.h>
+
 int main(void)
 {
-
-    char val = START_VAL;
-    int NumbersInSrt = 1; 
-
-    for (int i = 0; i < STR; i++)
+    int num, week, dayweek;
+    printf("Enter number day or 0 for exit\n");
+    scanf("%d", &num);
+    while (num>0)
     {
-        
-        for (int j = 0; j < NumbersInSrt; j++)
-        {
-            printf("%c", val - j);
-        }
-        printf("\n");
-        NumbersInSrt++;
-        
+        week = num / 7;
+        dayweek = num % 7;
+        printf("%d days is %d week and %d days\n", num, week, dayweek);
+        printf("-------------------------\n");
+        printf("\nEnter number day\n");
+        scanf("%d", &num);
     }
 
-    return 0;    
+    printf("You input invalid number. Exit\n");
 }
