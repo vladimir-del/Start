@@ -101,4 +101,3 @@ void copy_ptrs(double *ArrTo, double *ArrFrom, double *num)
     printf("Third fuction\n");
     printf("%.2lf\n", *num);
 }
-
