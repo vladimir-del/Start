@@ -7,7 +7,9 @@
 
 /* 
 Text programmming exersice.
-******
+
+Write a function that reverses the contents of an array of double and test it in a simple
+program.
 */
 
 #include <stdio.h>

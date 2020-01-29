@@ -7,7 +7,9 @@
 
 /* 
 Text programmming exersice.
-******
+
+Write a function that returns the difference between the largest and smallest elements of
+an array-of- double . Test the function in a simple program.
 */
 
 #include <stdio.h>
@@ -20,7 +22,7 @@ void main(void)
 {
     double array[ELEMENTS] = {56.0, 1122.5 ,1120.95959, 455.2, 84.2828};
     
-	printf("Max value in index array = %.2lf\n", func(array, ELEMENTS));
+	printf("Difference value between the largest and smallest element = %.2lf\n", func(array, ELEMENTS));
     return;
 }
 
