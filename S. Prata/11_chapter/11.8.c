@@ -63,11 +63,16 @@ int main (void)
 char *string_in(char *s1, char *s2)
 {
     int i = 0, k=0, l=0;
-    char *adress = "";
+    char *adress;
+
+    //counter for s1
     for (i = 0; *s1 != '\n'; i++)
     {
+        //search condition s2 in s1
         for (l = 0, k = i; * (s2 + l) != '\n' && * (s1 + k) == * (s2 + l); k++, l++)
         ;
+
+        //stop. when all charcters in s2 are found in s1
         if ( * (s2 + l) == '\n' && k > 0)
         {
             adress = (s1 + i);
