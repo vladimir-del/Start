@@ -34,10 +34,7 @@ int main (void)
         printf("S1 = ");
         fgets(string1, MAX,stdin);
         
-        printf("String 1 after function repl_str = %s\n", repl_str(string1));
-        //printf("Adrees firs element s1 = %p\n", string1);
-        //printf("Adrees find element s1 = %p\n", string_in(string1, string2));
-        //printf("Press 'E' for exit or 'Enter' to continue\n");
+        printf("String after function repl_str = %s\n", repl_str(string1));
 
     } while (one_char() != 'E');
     
@@ -54,14 +51,15 @@ int main (void)
 
 char *repl_str(char *s1)
 {
-
-
-    char * end = s1 + strlen(s1) -2 ;
+    //create a pointer to the end of the string. -2 because '\n' and '\0' are the last symbols in the string.
+    char * end = s1 + strlen(s1) - 2;
+    //create a poinetr to the begining of the string.
     char * start = s1;
+
 while (start < end)
     { 
         char temp;
-       
+       //replase contetnts
         temp = *start;
         *start = *end;
         *end = temp;
