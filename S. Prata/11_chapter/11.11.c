@@ -23,7 +23,7 @@ actually perform the promised tasks.
 #define NUM_STR 10
 
 
-void func1(void);
+void func1(char *SourceArr);
 void func2(void);
 void func3(void);
 void func4(void);
@@ -33,6 +33,7 @@ int main(int argc, char * argv[])
 {
 	char const *quit = "quit\n";
 	int MenuSelect;
+	int temp;
 	
 	printf("If you want to exit. Write quit\n");
 	
@@ -46,62 +47,33 @@ int main(int argc, char * argv[])
 			//check for exit
 			if (strcmp(string[i], quit) == 0)
 			{
-				printf(" string[%d] = %s", i, string[i][LINE_MAX]);
+				printf(" string[%d] = %s", i, string[i]);
 				break;
 			}
 		}
-		
 	
-		
-
-
-
-	while (scanf("%d", &MenuSelect)!=5)
-	{
-		printf("\n\nPlease select the appropriate item:\n\n");
-		printf("(1) print the original list of strings\n");
-		printf("(2) print the strings in ASCII collating sequence\n");
-		printf("(3) print the strings in order of increasing length\n");
-		printf("(4) print the strings in order of the length of the first word in the string\n");
-		printf("(5) quit\n");
-		
-		printf("%d\n", MenuSelect);
-		
-		switch (MenuSelect)
+	do 
 		{
-		case 1:
-			func1();
-			break;
-		case 2:
-			func2();
-			break;
+			printf("\n\nPlease select the appropriate item:\n\n");
+			printf("(1) print the original list of strings\n");
+			printf("(2) print the strings in ASCII collating sequence\n");
+			printf("(3) print the strings in order of increasing length\n");
+			printf("(4) print the strings in order of the length of the first word in the string\n");
+			printf("(5) quit\n");
 			
-		case 3:
-			func3();
-			break;
+			printf("%d\n", MenuSelect);
+			//temp = scanf("%d", &MenuSelect);
 			
-		case 4:
-			func4();
-			break;
-			
-		case 5:
-			
-			break;
-				
-		default:
-			printf("Wrong input\n");
-			//scanf("%d", &MenuSelect);
-			break;
+			func1(*string);
+
 		}
-
-	}
-
-	
+	while (scanf("%d", &MenuSelect) != 5);
+		
 }
 
-void func1(void)
+void func1( char *SourceArr)
 {
-	printf("func 1\n");
+	printf("first elevemt of Array = %s\n", *SourceArr);
 }
 
 void func2(void)
@@ -123,3 +95,32 @@ void func5(void)
 {
 	printf("func 5\n");
 }
+
+/*
+switch (MenuSelect)
+			{
+			case 1:
+				func1();
+				break;
+			case 2:
+				func2();
+				break;
+				
+			case 3:
+				func3();
+				break;
+				
+			case 4:
+				func4();
+				break;
+				
+			case 5:
+				
+				break;
+					
+			default:
+				printf("Wrong input\n");
+				//scanf("%d", &MenuSelect);
+				break;
+			}
+			*/
