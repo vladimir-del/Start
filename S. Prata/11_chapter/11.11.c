@@ -1,39 +1,41 @@
 //-------------------------------------------------
-//Date: 26.08.2020
+//Date: 28.07.2020
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 11
-// Programming exercise 11
+// Programming exercise 4
 //-------------------------------------------------
 
 /* 
 Text programmming exersice.
 
-Write a program that reads in up to 10 strings or to EOF , whichever comes first. Have it
-offer the user a menu with five choices: print the original list of strings, print the 
-strings in ASCII collating sequence, print the strings in order of increasing length, 
-print the strings in order of the length of the first word in the string, and quit. Have 
-the menu recycle until the user enters the quit request. The program, of course, should 
-actually perform the promised tasks.
+11. Write a program that reads in up to 10 strings or to EOF, whichever comes first. Have it
+offer the user a menu with five choices: print the original list of strings, print the strings
+in ASCII collating sequence, print the strings in order of increasing length, print the
+strings in order of the length of the first word in the string, and quit. Have the menu
+recycle until the user enters the quit request. The program, of course, should actually
+perform the promised tasks. 
+
+I change EOF to const string "Quit"
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
 
-#define NUM_STR 10
+#define NUM_STR 4
+#define LINE_MAX 200
 
-
-void func1(char *SourceArr);
+void OriginList(char (*Array)[LINE_MAX], int num_str);
 void func2(void);
 void func3(void);
 void func4(void);
 void func5(void);
+int get_int(void);
 
 int main(int argc, char * argv[])
 {
-	char const *quit = "quit\n";
+	char const quit[] = "quit\n";
 	int MenuSelect;
-	int temp;
 	
 	printf("If you want to exit. Write quit\n");
 	
@@ -47,33 +49,56 @@ int main(int argc, char * argv[])
 			//check for exit
 			if (strcmp(string[i], quit) == 0)
 			{
-				printf(" string[%d] = %s", i, string[i]);
+				printf(" string[%d] = %s", i, string[i][LINE_MAX]);
 				break;
 			}
 		}
-	
-	do 
-		{
-			printf("\n\nPlease select the appropriate item:\n\n");
-			printf("(1) print the original list of strings\n");
-			printf("(2) print the strings in ASCII collating sequence\n");
-			printf("(3) print the strings in order of increasing length\n");
-			printf("(4) print the strings in order of the length of the first word in the string\n");
-			printf("(5) quit\n");
-			
-			printf("%d\n", MenuSelect);
-			//temp = scanf("%d", &MenuSelect);
-			
-			func1(*string);
-
-		}
-	while (scanf("%d", &MenuSelect) != 5);
 		
+	do 
+	{
+		printf("\n\nPlease select the appropriate item:\n\n");
+		printf("(1) print the original list of strings\n");
+		printf("(2) print the strings in ASCII collating sequence\n");
+		printf("(3) print the strings in order of increasing length\n");
+		printf("(4) print the strings in order of the length of the first word in the string\n");
+		printf("(5) quit\n");
+		
+		
+		printf("Your choice = ");
+		MenuSelect = get_int();
+		
+		switch (MenuSelect)
+		{
+		case 1:
+			OriginList(string, NUM_STR);
+			break;
+		case 2:
+			func2();
+			break;
+			
+		case 3:
+			func3();
+			break;
+			
+		case 4:
+			func4();
+			break;
+		}
+	
+	}
+	
+	while(MenuSelect != 5);
+		
+	return 0;
 }
 
-void func1( char *SourceArr)
+void OriginList(char (*Array)[LINE_MAX], int num_str)
 {
-	printf("first elevemt of Array = %s\n", *SourceArr);
+	for (int i = 0; i < num_str; i++)
+	{
+		printf("%s", Array[i][LINE_MAX]);
+	}
+	//printf("func 1\n");
 }
 
 void func2(void)
@@ -96,31 +121,19 @@ void func5(void)
 	printf("func 5\n");
 }
 
-/*
-switch (MenuSelect)
-			{
-			case 1:
-				func1();
-				break;
-			case 2:
-				func2();
-				break;
-				
-			case 3:
-				func3();
-				break;
-				
-			case 4:
-				func4();
-				break;
-				
-			case 5:
-				
-				break;
-					
-			default:
-				printf("Wrong input\n");
-				//scanf("%d", &MenuSelect);
-				break;
-			}
-			*/
+int get_int(void)
+{
+	char ch;
+	int input;
+	
+	while (scanf("%d", &input) != 1)
+	{
+		while(ch = getchar() != '\n')
+		{
+			putchar(ch);
+			printf("Enter nteger number like as 2, 6 or 56: \n");
+		}
+	}
+	
+	return input;
+}
