@@ -23,7 +23,7 @@ I change EOF to const string "Quit"
 #include <limits.h>
 
 #define NUM_STR 4
-#define LINE_MAX 200
+//#define LINE_MAX 200
 
 void OriginList(char (*Array)[LINE_MAX], int num_str);
 void SortAscii(char (*Array)[LINE_MAX], int num_str);
@@ -99,6 +99,8 @@ int main(int argc, char * argv[])
 	return 0;
 }
 
+//-------------------------------------------------------------
+
 void OriginList(char (*Array)[LINE_MAX], int num_str)
 {
 	printf("\n\n**|-------------------------------------|**");
@@ -109,13 +111,52 @@ void OriginList(char (*Array)[LINE_MAX], int num_str)
 	{
 		printf("string[%d] = %s", i, Array[i]);
 	}
-	//printf("func 1\n");
 }
+
+//-------------------------------------------------------------
 
 void SortAscii(char (*Array)[LINE_MAX], int num_str)
 {
-	printf("%c", *((*Array + 0) + 1));
+	
+	for (int k = 0; k < num_str; k++) // iteration string
+	{
+
+	//print string in asci format
+
+	for (int i = 0; i < (strlen(*(Array + k))) - 1; i++)
+	{
+		printf("%c ", *(*(Array + k) + i));
+	}
+
+	// Bubble sort
+	// "-2" remove symbol '\0' and '\n'
+	
+	for (int i = 0; i < (strlen(*(Array + k))) - 2; i++) 
+	{
+		for (int j = 0; j < (strlen(*(Array + k))) - 2; j++)
+		{
+			if ( *(*(Array + k) + j) > *(*(Array + k) + j + 1))
+			{
+				char temp = *(*(Array + k) + j);
+				*(*(Array + k) + j) = *(*(Array + k) + j + 1);
+				*(*(Array + k) + j + 1) = temp;
+			}
+		}
+	}
+
+	printf("\n");
+
+	//print after sorting
+	for (int i = 0; i < (strlen(*(Array + k))) - 1; i++)
+	{
+		printf("%c ", *(*(Array + k) + i));
+	}
+	printf("\n");
+	}
+	
 }
+
+//-------------------------------------------------------------
 
 void func3(void)
 {
