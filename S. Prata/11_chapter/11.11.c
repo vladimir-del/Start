@@ -26,7 +26,7 @@ I change EOF to const string "Quit"
 #define LINE_MAX 200
 
 void OriginList(char (*Array)[LINE_MAX], int num_str);
-void func2(void);
+void SortAscii(char (*Array)[LINE_MAX], int num_str);
 void func3(void);
 void func4(void);
 void func5(void);
@@ -49,19 +49,26 @@ int main(int argc, char * argv[])
 			//check for exit
 			if (strcmp(string[i], quit) == 0)
 			{
-				printf(" string[%d] = %s", i, string[i][LINE_MAX]);
+				printf(" string[%d] = %s", i, string[i]);
 				break;
 			}
 		}
 		
+	for (int i = 0; i < NUM_STR; i++)
+	{
+		printf("%s", string[i]);
+	}
+		
 	do 
 	{
+		printf("\n\n\n**|-------------------------------------|**");
 		printf("\n\nPlease select the appropriate item:\n\n");
+		printf("**|-------------------------------------|**\n");
 		printf("(1) print the original list of strings\n");
 		printf("(2) print the strings in ASCII collating sequence\n");
 		printf("(3) print the strings in order of increasing length\n");
 		printf("(4) print the strings in order of the length of the first word in the string\n");
-		printf("(5) quit\n");
+		printf("(5) quit\n\n\n\n");
 		
 		
 		printf("Your choice = ");
@@ -73,7 +80,7 @@ int main(int argc, char * argv[])
 			OriginList(string, NUM_STR);
 			break;
 		case 2:
-			func2();
+			SortAscii(string, NUM_STR);
 			break;
 			
 		case 3:
@@ -94,16 +101,20 @@ int main(int argc, char * argv[])
 
 void OriginList(char (*Array)[LINE_MAX], int num_str)
 {
+	printf("\n\n**|-------------------------------------|**");
+	printf("\nResult function_1:\n");
+	printf("**|-------------------------------------|**\n");
+	
 	for (int i = 0; i < num_str; i++)
 	{
-		printf("%s", Array[i][LINE_MAX]);
+		printf("string[%d] = %s", i, Array[i]);
 	}
 	//printf("func 1\n");
 }
 
-void func2(void)
+void SortAscii(char (*Array)[LINE_MAX], int num_str)
 {
-	printf("func 2\n");
+	printf("%c", *((*Array + 0) + 1));
 }
 
 void func3(void)
