@@ -27,7 +27,7 @@ I change EOF to const string "Quit"
 
 void OriginList(char (*Array)[LINE_MAX], int num_str);
 void SortAscii(char (*Array)[LINE_MAX], int num_str);
-void func3(void);
+void SortLength(char (*Array)[LINE_MAX], int num_str);
 void func4(void);
 void func5(void);
 int get_int(void);
@@ -68,7 +68,7 @@ int main(int argc, char * argv[])
 		printf("(2) print the strings in ASCII collating sequence\n");
 		printf("(3) print the strings in order of increasing length\n");
 		printf("(4) print the strings in order of the length of the first word in the string\n");
-		printf("(5) quit\n\n\n\n");
+		printf("(5) quit\n\n");
 		
 		
 		printf("Your choice = ");
@@ -77,18 +77,26 @@ int main(int argc, char * argv[])
 		switch (MenuSelect)
 		{
 		case 1:
+			
 			OriginList(string, NUM_STR);
+			printf("****End function****");
 			break;
 		case 2:
+			
 			SortAscii(string, NUM_STR);
+			printf("****End function****");
 			break;
 			
 		case 3:
-			func3();
+			
+			SortLength(string, NUM_STR);
+			printf("****End function****");
 			break;
 			
 		case 4:
+			
 			func4();
+			printf("****End function****");
 			break;
 		}
 	
@@ -117,17 +125,18 @@ void OriginList(char (*Array)[LINE_MAX], int num_str)
 
 void SortAscii(char (*Array)[LINE_MAX], int num_str)
 {
+
+	printf("\n\n**|-------------------------------------|**");
+	printf("\nResult function_2:\n");
+	printf("**|-------------------------------------|**\n");
 	
 	for (int k = 0; k < num_str; k++) // iteration string
 	{
 
 	//print string in asci format
 
-	for (int i = 0; i < (strlen(*(Array + k))) - 1; i++)
-	{
-		printf("%c ", *(*(Array + k) + i));
-	}
-
+	printf("Origin string[%d] = %s", k, *(Array + k));
+	
 	// Bubble sort
 	// "-2" remove symbol '\0' and '\n'
 	
@@ -144,23 +153,33 @@ void SortAscii(char (*Array)[LINE_MAX], int num_str)
 		}
 	}
 
-	printf("\n");
+	printf("string[%d] after bubble sorting = ",k);
 
 	//print after sorting
 	for (int i = 0; i < (strlen(*(Array + k))) - 1; i++)
 	{
-		printf("%c ", *(*(Array + k) + i));
+		printf("%c", *(*(Array + k) + i));
 	}
-	printf("\n");
+	printf("\n\n");
 	}
 	
 }
 
 //-------------------------------------------------------------
 
-void func3(void)
+void SortLength(char (*Array)[LINE_MAX], int num_str)
 {
-	printf("func 3\n");
+	for (int i = 0; i < num_str; i++)
+	{
+		//нужно применить такойже метод пузрьковой сортировки как в SortAscii
+		int temp = strlen(*(Array + i));
+		char TmpArr[num_str];
+		TmpArr[i] = temp;
+		printf("func 3\n");
+	}
+
+
+	
 }
 
 void func4(void)
