@@ -117,7 +117,7 @@ void OriginList(char (*Array)[LINE_MAX], int num_str)
 	
 	for (int i = 0; i < num_str; i++)
 	{
-		printf("string[%d] = %s", i, Array[i]);
+		printf("string[%d] = %s", i, *(Array + i));
 	}
 }
 
@@ -169,18 +169,33 @@ void SortAscii(char (*Array)[LINE_MAX], int num_str)
 
 void SortLength(char (*Array)[LINE_MAX], int num_str)
 {
+	
+		//нужно применить такойже метод пузрьковой сортировки как в SortAscii
+		//int temp = strlen(*(Array + i));
+		//char TmpArr[num_str];
+		//TmpArr[i] = temp;                                                                                                                                                                               LLLLJHLL[UUYUUPPIP[UIPIPUIIPUIPPUI[PUPUPPUIIPOUPUPUPLLLYK''';J,J.HJ,U;L;LYLL;LL;UL;;ULUPPUYPUYYLLU;LLUYYLJHLULLLLLLL]U]J'J'JH'KJ'J'K/'K'/'K
+		
+		for (int i = 0; i < num_str; i++)
+			{
+				for (int k = 0; k < num_str; k++)
+					{
+						if (strlen( *(Array + k)) > strlen( *(Array + k + 1)) )
+							{
+								char temp[LINE_MAX] ;
+								strcpy(temp, *(Array + k));
+								strcpy(*(Array + k), *(Array + k + 1));
+								strcpy(*(Array + k + 1), temp);
+
+							}
+					}
+			}
 	for (int i = 0; i < num_str; i++)
 	{
-		//нужно применить такойже метод пузрьковой сортировки как в SortAscii
-		int temp = strlen(*(Array + i));
-		char TmpArr[num_str];
-		TmpArr[i] = temp;
+		printf("string[%d] = %s", i, *(Array + i));
+	}
+						
 		printf("func 3\n");
 	}
-
-
-	
-}
 
 void func4(void)
 {
