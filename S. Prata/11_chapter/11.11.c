@@ -22,19 +22,17 @@ I change EOF to const string "Quit"
 #include <string.h>
 #include <limits.h>
 
-#define NUM_STR 4
-//#define LINE_MAX 200
+#define NUM_STR 4  // number of strings
+//#define LINE_MAX 200 // if LINE_MAX undefined
 
-void OriginList(char (*Array)[LINE_MAX], int num_str);
-void SortAscii(char (*Array)[LINE_MAX], int num_str);
-void SortLength(char (*Array)[LINE_MAX], int num_str);
-void func4(void);
-void func5(void);
-int get_int(void);
+void OriginList(int num_str, char (*Array)[LINE_MAX]);
+void SortAscii(int num_str, char (*Array)[LINE_MAX]);
+void SortLength(int num_str, char (*Array)[LINE_MAX]);
+void SortFirstWord(int num_str, char (*Array)[LINE_MAX]);
 
 int main(int argc, char * argv[])
 {
-	char const quit[] = "quit\n";
+	const char quit[] = "quit\n";
 	int MenuSelect;
 	
 	printf("If you want to exit. Write quit\n");
@@ -49,71 +47,50 @@ int main(int argc, char * argv[])
 			//check for exit
 			if (strcmp(string[i], quit) == 0)
 			{
-				printf(" string[%d] = %s", i, string[i]);
-				break;
+				puts("Quit programm");
+				return 0;
 			}
 		}
 		
-	for (int i = 0; i < NUM_STR; i++)
-	{
-		printf("%s", string[i]);
-	}
-		
 	do 
 	{
-		printf("\n\n\n**|-------------------------------------|**");
-		printf("\n\nPlease select the appropriate item:\n\n");
-		printf("**|-------------------------------------|**\n");
-		printf("(1) print the original list of strings\n");
-		printf("(2) print the strings in ASCII collating sequence\n");
-		printf("(3) print the strings in order of increasing length\n");
-		printf("(4) print the strings in order of the length of the first word in the string\n");
-		printf("(5) quit\n\n");
+		puts("\n**|-------------------------------------|**\n");
+		puts("Please select the appropriate item:");
+		puts("\n**|-------------------------------------|**\n");
+		puts("(1) print the original list of strings");
+		puts("(2) print the strings in ASCII collating sequence");
+		puts("(3) print the strings in order of increasing length");
+		puts("(4) print the strings in order of the length of the first word in the string");
+		puts("(5) quit");
 		
+		puts("Your choice = ");
+		MenuSelect = getchar();
 		
-		printf("Your choice = ");
-		MenuSelect = get_int();
+		while (getchar() != '\n') //deleted '\n'
+            continue;
 		
 		switch (MenuSelect)
 		{
-		case 1:
-			
-			OriginList(string, NUM_STR);
-			printf("****End function****");
-			break;
-		case 2:
-			
-			SortAscii(string, NUM_STR);
-			printf("****End function****");
-			break;
-			
-		case 3:
-			
-			SortLength(string, NUM_STR);
-			printf("****End function****");
-			break;
-			
-		case 4:
-			
-			func4();
-			printf("****End function****");
-			break;
+		case '1': OriginList(NUM_STR, string); 		break;
+		case '2': SortAscii(NUM_STR, string); 		break;
+		case '3': SortLength(NUM_STR, string); 		break;
+		case '4': SortFirstWord(NUM_STR, string); 	break;
+		case '5': puts("Bye!"); 					return 0;
+        default: puts("Error!"); 					return 0;
 		}
 	
 	}
-	
-	while(MenuSelect != 5);
-		
+	while(MenuSelect != 5);	
 	return 0;
 }
 
 //-------------------------------------------------------------
 
-void OriginList(char (*Array)[LINE_MAX], int num_str)
+void OriginList(int num_str, char (*Array)[LINE_MAX])
 {
-	printf("\n\n**|-------------------------------------|**");
-	printf("\nResult function_1:\n");
-	printf("**|-------------------------------------|**\n");
+	puts("\n**|-------------------------------------|**");
+	puts("Result function_1:");
+	puts("**|-------------------------------------|**\n");
 	
 	for (int i = 0; i < num_str; i++)
 	{
@@ -123,20 +100,15 @@ void OriginList(char (*Array)[LINE_MAX], int num_str)
 
 //-------------------------------------------------------------
 
-void SortAscii(char (*Array)[LINE_MAX], int num_str)
+void SortAscii(int num_str, char (*Array)[LINE_MAX])
 {
 
-	printf("\n\n**|-------------------------------------|**");
-	printf("\nResult function_2:\n");
-	printf("**|-------------------------------------|**\n");
-	
+	puts("**|-------------------------------------|**");
+	puts("Result function_2:\n");
+	puts("**|-------------------------------------|**");
+
 	for (int k = 0; k < num_str; k++) // iteration string
 	{
-
-	//print string in asci format
-
-	printf("Origin string[%d] = %s", k, *(Array + k));
-	
 	// Bubble sort
 	// "-2" remove symbol '\0' and '\n'
 	
@@ -160,66 +132,77 @@ void SortAscii(char (*Array)[LINE_MAX], int num_str)
 	{
 		printf("%c", *(*(Array + k) + i));
 	}
-	printf("\n\n");
+	printf("\n");
+
 	}
 	
 }
 
 //-------------------------------------------------------------
 
-void SortLength(char (*Array)[LINE_MAX], int num_str)
+void SortLength(int num_str, char (*Array)[LINE_MAX])
 {
-	
-		//нужно применить такойже метод пузрьковой сортировки как в SortAscii
-		//int temp = strlen(*(Array + i));
-		//char TmpArr[num_str];
-		//TmpArr[i] = temp;                                                                                                                                                                               LLLLJHLL[UUYUUPPIP[UIPIPUIIPUIPPUI[PUPUPPUIIPOUPUPUPLLLYK''';J,J.HJ,U;L;LYLL;LL;UL;;ULUPPUYPUYYLLU;LLUYYLJHLULLLLLLL]U]J'J'JH'KJ'J'K/'K'/'K
-		
+	puts("**|-------------------------------------|**");
+	puts("Result function_3:\n");
+	puts("**|-------------------------------------|**");
+	char temp[LINE_MAX];
 		for (int i = 0; i < num_str; i++)
 			{
-				for (int k = 0; k < num_str; k++)
+				for (int k = i + 1; k < num_str; k++)
 					{
-						if (strlen( *(Array + k)) > strlen( *(Array + k + 1)) )
+						if (strlen(*(Array + i)) > strlen(*(Array + k)))
 							{
-								char temp[LINE_MAX] ;
-								strcpy(temp, *(Array + k));
-								strcpy(*(Array + k), *(Array + k + 1));
-								strcpy(*(Array + k + 1), temp);
 
+								strcpy(temp, *(Array + i));
+								strcpy(*(Array + i), *(Array + k));
+								strcpy(*(Array + k), temp);
 							}
 					}
 			}
+	
 	for (int i = 0; i < num_str; i++)
-	{
 		printf("string[%d] = %s", i, *(Array + i));
-	}
-						
-		printf("func 3\n");
-	}
-
-void func4(void)
-{
-	printf("func 4\n");
-}
-
-void func5(void)
-{
-	printf("func 5\n");
-}
-
-int get_int(void)
-{
-	char ch;
-	int input;
 	
-	while (scanf("%d", &input) != 1)
-	{
-		while(ch = getchar() != '\n')
+	}
+
+void SortFirstWord(int num_str, char (*Array)[LINE_MAX])
+{
+	puts("**|-------------------------------------|**");
+	puts("Result function_4:\n");
+	puts("**|-------------------------------------|**");
+	
+	//define the first word in the string
+	//the word sent to new array
+	char temp[NUM_STR][LINE_MAX];
+		for (int i = 0; i < NUM_STR; i++)
 		{
-			putchar(ch);
-			printf("Enter nteger number like as 2, 6 or 56: \n");
+			for (int k = 0; k < strlen(* (Array + i)); k++)
+			{
+				
+				if (*(*(Array + i) + k) == ' ' || *(*(Array + i) + k) == '\n')
+				{
+				strncpy(*(temp + i), *(Array + i), k);
+				break;
+				}
+			}
 		}
-	}
-	
-	return input;
+
+	//new array sorting by bubble. 
+
+	for (int i = 0; i < num_str; i++)
+		{
+			for (int k = 0; k < num_str; k++)
+				{
+					if (strlen( *(temp + k)) > strlen( *(temp + k + 1)) )
+						{
+							char temp1[LINE_MAX] ;
+							strcpy(temp1, *(temp + k));
+							strcpy(*(temp + k), *(temp + k + 1));
+							strcpy(*(temp + k + 1), temp1);
+						}
+				}
+		}
+	//print array after sorting
+	for (int i = 0; i < num_str; i++)
+		printf("string[%d] = %s\n", i, *(temp + i));
 }
