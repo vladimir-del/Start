@@ -2,7 +2,7 @@
 //Date: 28.07.2020
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 11
-// Programming exercise 4
+// Programming exercise 11
 //-------------------------------------------------
 
 /* 
