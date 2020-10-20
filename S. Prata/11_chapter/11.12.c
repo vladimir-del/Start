@@ -53,25 +53,25 @@ char * s_gets(char *string, int num)
 
 int NumWords(char *s)
 {
-    for (int i = 0; i < strlen(s); i++)
-    {
         int inword = false;
-        int word = 0; 
-
+        int word = 0;
+        int i = 0;
         while (*(s + i) != '\n')
         {
             if (*(s + i) == ' ')
             {
                 inword = false;
+                i++;
                 continue;
             }
             else if (inword == false)
             {
                 inword = true;
-                ++word;
+                word++;
             }
+            i++;
         }
 
-        printf("%d", word);
-    }
+        printf("%d\n", word);
+    
 }
