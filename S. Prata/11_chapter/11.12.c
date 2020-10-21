@@ -51,13 +51,13 @@ int NumWords(char *s)
 {
         int inword = false;
         int word = 0;
-        int i = 0;
-        while (*(s + i) != '\n')
+        //int i = 0;
+        while (*s != '\n')
         {
-            if (*(s + i) == ' ')
+            if (*s == ' ')
             {
                 inword = false;
-                i++;
+                s++;
                 continue;
             }
             else if (inword == false)
@@ -65,7 +65,7 @@ int NumWords(char *s)
                 inword = true;
                 word++;
             }
-            i++;
+            s++;
         }
     return word;
 }
@@ -74,10 +74,11 @@ int NumUpLetters(char *s)
 {
 	int NumUpper = 0;	
 	
-	for(int i = 0; i < strlen(s); i++)
+	while(*s != '\n')
 	{
-		if (isupper(*(s + i)))
+		if (isupper(*s))
 			NumUpper++;
+		s++;
 	}
 	
 	return NumUpper;
@@ -86,10 +87,11 @@ int NumUpLetters(char *s)
 int NumLowLetters(char *s)
 {
 	int NumLower = 0;
-	for(int i = 0; i < strlen(s); i++)
+	while(*s != '\n')
 	{
-		if (islower(*(s + i)))
+		if (islower(*s))
 			NumLower++;
+		s++;
 	}
 	
 	return NumLower;
@@ -98,10 +100,11 @@ int NumLowLetters(char *s)
 int NumPunc(char *s)
 {
 	int NumPunct = 0;
-	for(int i = 0; i < strlen(s); i++)
+	while(*s != '\n')
 	{
-		if (ispunct(*(s + i)))
+		if (ispunct(*s))
 			NumPunct++;
+		s++;
 	}
 	
 	return NumPunct;
@@ -110,10 +113,11 @@ int NumPunc(char *s)
 int NumDig(char *s)
 {
 	int NumDig = 0;
-	for(int i = 0; i < strlen(s); i++)
+	while(*s != '\n')
 	{
-		if (isdigit(*(s + i)))
+		if (isdigit(*s))
 			NumDig++;
+		s++;
 	}
 	
 	return NumDig;
