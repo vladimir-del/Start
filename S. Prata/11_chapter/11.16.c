@@ -18,26 +18,62 @@ argument had been used.
 
 #include <stdio.h>
 #include <limits.h>
+#include <ctype.h>
+
+#define LINE_MAX 80
+
+char * toup(char *s);
+char * tolow(char *s);
+
 
 int main(int argc, char *argv[])
 {
     char s[LINE_MAX];
     fgets(s, LINE_MAX, stdin);
-    printf("%s", argv[1] + 1);
+    //printf("%s", argv[1] + 1);
+	
+	//char c = 'g';
+	//printf("%c", toupper(c));
+	//printf("%s", *argv[1]);
 
     switch (*(argv[1] + 1))
     {
     case 'p':
-        printf("-p %s", s);
+        printf("Argv -p: Print input as is: %s", s);
         break;
     case 'u':
-        printf("-u %s", s);
+        printf("Argv -u: Map input to all uppercase:");
+		toup(s);
         break;
     case 'l':
-        printf("-l %s", s);
+        printf("Argv -l: Map input to all lowercase:");
+		tolow(s);
         break;
-    
     default:
     puts("Error"); return 0;
     }
+}
+
+char * toup(char *s)
+{
+	int i = 0;
+	while (*(s + i) != '\n')
+	{
+		printf("%c", toupper(*(s + i)));
+		i++;
+	}
+	
+	return s;
+}
+
+char * tolow(char *s)
+{
+	int i = 0;
+	while (*(s + i) != '\n')
+	{
+		printf("%c", tolower(*(s + i)));
+		i++;
+	}
+	
+	return s;
 }
