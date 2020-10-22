@@ -20,7 +20,7 @@ argument had been used.
 #include <limits.h>
 #include <ctype.h>
 
-#define LINE_MAX 80
+//#define LINE_MAX 80
 
 char * toup(char *s);
 char * tolow(char *s);
@@ -30,11 +30,13 @@ int main(int argc, char *argv[])
 {
     char s[LINE_MAX];
     fgets(s, LINE_MAX, stdin);
-    //printf("%s", argv[1] + 1);
-	
-	//char c = 'g';
-	//printf("%c", toupper(c));
-	//printf("%s", *argv[1]);
+
+    if (argc == 1)
+    {
+        puts("Error. You are not input argumets.");
+        return 0;
+    }
+
 
     switch (*(argv[1] + 1))
     {
@@ -49,15 +51,15 @@ int main(int argc, char *argv[])
         printf("Argv -l: Map input to all lowercase:");
 		tolow(s);
         break;
-    default:
-    puts("Error"); return 0;
+    //default:
+    //puts("Error"); return 0;
     }
 }
 
 char * toup(char *s)
 {
 	int i = 0;
-	while (*(s + i) != '\n')
+	while (*(s + i) != '\0')
 	{
 		printf("%c", toupper(*(s + i)));
 		i++;
@@ -69,7 +71,7 @@ char * toup(char *s)
 char * tolow(char *s)
 {
 	int i = 0;
-	while (*(s + i) != '\n')
+	while (*(s + i) != '\0')
 	{
 		printf("%c", tolower(*(s + i)));
 		i++;
