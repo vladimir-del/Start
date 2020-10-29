@@ -20,15 +20,26 @@ calls, however.
 int main(void)
  { 
 	int mode;
+	int mode_prev = 0;
 	int mode_rez;
 	int range, consume;
+	const char *s1 = "(US)";
+	const char *s2 = "(Metric)";
+
 	printf("Enter 0 for metric mode, 1 for US mode: ");
 	scanf("%d", &mode);
 	while (mode >= 0)
 	{
-		mode_rez = set_mode(mode);
-		get_info(&range, &consume, mode_rez);
-		show_info(range, consume, mode_rez);
+		if (mode <=1)
+			mode_prev = mode;
+		else 
+		{ 
+			mode = mode_prev;
+			printf("Invalid mode specified. Mode %d %s used.\n", mode, mode ? s1 : s2);
+		}
+		
+		get_info(&range, &consume, mode);
+		show_info(range, consume, mode);
 		printf("Enter 0 for metric mode, 1 for US mode");
 		printf(" (-1 to quit): ");
 		scanf("%d", &mode);

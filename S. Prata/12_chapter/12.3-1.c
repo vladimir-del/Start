@@ -7,20 +7,7 @@
 
 #include <stdio.h>
 
-int set_mode(int mode_from_main)
-{
-	int mode_rez = 0;
-	const char *s1 = "(US)";
-	const char *s2 = "(Metric)";
-	if (mode_from_main <= 1)
-	{
-		mode_rez = mode_from_main;
-	}
-	else
-	printf("Invalid mode specified. Mode %d %s used.\n", mode_rez, mode_rez ? s1 : s2);
-	return mode_rez;
 
-}
 void get_info(int *range, int *consume, int mode_rez)
 {
 	if (mode_rez == 0)
