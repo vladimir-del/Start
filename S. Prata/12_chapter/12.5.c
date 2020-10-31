@@ -65,6 +65,6 @@ int main (int argc, char *argv[])
 		
 	}
 	
-	printf("\nProgram execution time by the function clock() = %d", clock());
+	printf("\nProgram execution time by the function clock() = %ld", clock());
 	return 0;
 }
