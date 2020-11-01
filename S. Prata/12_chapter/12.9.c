@@ -60,6 +60,8 @@ int main(void)
     for (int i = 0; i < NumWord; i++)
     {
         printf("%s\n", ptrToArrWord[i]);
+        free(ptrToArrWord[i]);
     }
+    free(ptrToArrWord);
 
 }
