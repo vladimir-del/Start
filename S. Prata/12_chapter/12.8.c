@@ -56,7 +56,7 @@ void show_array(const int ar[], int n)
     for (int i = 0; i < n; i++)
     {
         printf("%d ", ar[i]);
-        if ((i+1)%8 == 0)
+        if ((i)%8 == 7)
         puts("");
     }
      puts("");}
