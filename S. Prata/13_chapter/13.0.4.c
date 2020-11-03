@@ -2,7 +2,7 @@
 //Date: 03.11.2020
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 13
-// Review questions 6
+// Review questions 4
 //-------------------------------------------------
 
 /* 
@@ -55,6 +55,7 @@ int main (int argc, char **argv)
 			fprintf(fa, "%5.2f ", temp[i]);
 		fprintf(fa, "\n%5.2f", funcAver(num_elem, temp));
 	}
+	fclose(fa);
 	return 0; 
 }
 double funcAver(int num_elem, double *arr)
