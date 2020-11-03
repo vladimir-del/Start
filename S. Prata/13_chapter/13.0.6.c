@@ -25,10 +25,10 @@ int main (int argc, char **argv)
 	double temp[80];
 	int i = 0;
 	double num;
-	if (argc > 2)
+	if (argc >2) 
 	{
-		puts("More than 1 argc");
-		exit(1);
+		printf("Usage:$%s [FILE_NAME]\n", argv[0]);
+		exit(EXIT_FAILURE);
 	}
 	
 	puts("Enter max 80 double numbers");
