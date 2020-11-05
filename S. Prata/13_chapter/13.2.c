@@ -6,7 +6,7 @@
 //-------------------------------------------------
 /* 
 Text programmming exersice.
-1. Write a file-copy program that takes the original filename and the copy file from the
+2. Write a file-copy program that takes the original filename and the copy file from the
 command line. Use standard I/O and the binary mode, if possible.
 */
 
@@ -33,13 +33,18 @@ int main(int argc, char ** argv)
 		printf("Invalid target file name\n");
 		exit(2);
 	}
-	printf("%s %s", source, target);
 	
-	if ((fa = fopen(source, "r")) == NULL && (fb = fopen(target, "w")) == NULL)
+	if ((fa = fopen(source, "r")) == NULL)
 	{
-		printf("Cannot open file\n");
+		printf("Cannot open file to read\n");
 		exit(3);
 	}
+	if ((fb = fopen(target, "w")) == NULL)
+	{
+		printf("Cannot open file to write\n");
+		exit(4);
+	}
+
 	while ((ch = getc(fa)) != EOF)
 		fprintf(fb, "%c", ch);
 
