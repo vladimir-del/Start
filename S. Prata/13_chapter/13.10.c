@@ -6,7 +6,7 @@
 //-------------------------------------------------
 /* 
 Text programmming exersice.
-9. Write a program that opens a text file whose name is obtained interactively. Set up a
+10. Write a program that opens a text file whose name is obtained interactively. Set up a
 loop that asks the user to enter a file position. The program then should print the part of
 the file starting at that position and proceed to the next newline character. Let negative
 or nonnumeric input terminate the user-input loop. 
