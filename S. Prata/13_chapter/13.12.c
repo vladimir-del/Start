@@ -32,9 +32,9 @@ int main(int argc, char **argv)
 	FILE *fa;
 	int array[20][30];
 	char ch;
-	char s[20][31];
+	char s[20][31] = {'\0'};
 	
-	if ((fa = fopen("s.txt", "r")) == NULL)
+	if ((fa = fopen("s", "r")) == NULL)
 	{
 		fprintf(stdout,"Can't open \"%s\" file.\n", argv[0]);
 		exit(EXIT_FAILURE);
@@ -60,7 +60,6 @@ int main(int argc, char **argv)
 		 {
 			 for (int j = 0; j < 30; j++)
 			 {
-				
 				switch(*(*(array + i) + j))
 				{
 					case 0:
@@ -101,8 +100,6 @@ int main(int argc, char **argv)
 					case 9:
 					*(*(s + i) + j) = '#';
 					break;
-					default:
-					*(*(s + i) + j) = '\0';
 				}
 				
 			 }
@@ -112,7 +109,7 @@ int main(int argc, char **argv)
 	{
 		printf("%s\n", s[i]);
 	}
-	
+	/*
 	
 	for (int i = 0; i < 20; i++)
 		 {
@@ -120,6 +117,6 @@ int main(int argc, char **argv)
 			 printf("%2d", *(*(array + i) + j));
 		 printf("\n");
 		 }
-		 
+		 */
 	return 0;
 }
