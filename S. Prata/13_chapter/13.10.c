@@ -2,7 +2,7 @@
 //Date: 09.11.2020
 //Autor: Vlaimir Draga
 //S. Prata. Chapter 13
-//Programming exercise 9
+//Programming exercise 10
 //-------------------------------------------------
 /* 
 Text programmming exersice.
