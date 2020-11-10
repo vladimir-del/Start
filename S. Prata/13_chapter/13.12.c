@@ -16,9 +16,8 @@ space character, a 1 value to the period character, and so on, with each larger 
 represented by a character that occupies more space. For example, you might use # to
 represent 9. The last character (the 31st) in each row should be a null character, making
 it an array of 20 strings. Have the program display the resulting picture (that is, print the
-strings) and also store the result in a text file.  
-
-0 = ' '; 1 = '.'; 2 = '''; 3 = ':'; 4 = '~'; 
+strings) and also store the result in a text file.
+0 = ' '; 1 = '.'; 2 = '''; 3 = ':'; 4 = '~';
 5 = '*'; 6 = '='; 7 = '@'; 8 = '%'; 9 = '#';
 */
 
@@ -32,9 +31,12 @@ int main(int argc, char **argv)
 	FILE *fa;
 	int array[20][30];
 	char ch;
-	char s[20][31] = {'\0'};
+	char s[20][31] = {0};
+	const char symbols[10] = {' ', '.', '`', ':', '~', '*', '=', '@' , '%', '#'};
 	
-	if ((fa = fopen("s", "r")) == NULL)
+	
+	//open file
+	if ((fa = fopen("s.txt", "r")) == NULL)
 	{
 		fprintf(stdout,"Can't open \"%s\" file.\n", argv[0]);
 		exit(EXIT_FAILURE);
@@ -55,68 +57,18 @@ int main(int argc, char **argv)
 			 }
 		 }
 	
-	
+	//change int to symbol and creating strings
 	for (int i = 0; i < 20; i++)
 		 {
 			 for (int j = 0; j < 30; j++)
-			 {
-				switch(*(*(array + i) + j))
-				{
-					case 0:
-					*(*(s + i) + j) = ' ';
-					break;
-					
-					case 1:
-					*(*(s + i) + j) = '.';
-					break;
-					
-					case 2:
-					*(*(s + i) + j) = '`';
-					break;
-					
-					case 3:
-					*(*(s + i) + j) = ':';
-					break;
-					
-					case 4:
-					*(*(s + i) + j) = '~';
-					break;
-					
-					case 5:
-					*(*(s + i) + j) = '*';
-					break;
-					
-					case 6:
-					*(*(s + i) + j) = '=';
-					break;
-					case 7:
-					*(*(s + i) + j) = '@';
-					break;
-					
-					case 8:
-					*(*(s + i) + j) = '%';
-					break;
-					
-					case 9:
-					*(*(s + i) + j) = '#';
-					break;
-				}
-				
-			 }
+				*(*(s + i) + j) = *(symbols + *(*(array + i) + j));
 		 }
 	
+	//print strings
 	for (int i = 0; i < 20; i++)
 	{
 		printf("%s\n", s[i]);
 	}
-	/*
 	
-	for (int i = 0; i < 20; i++)
-		 {
-			 for (int j = 0; j < 30; j++)
-			 printf("%2d", *(*(array + i) + j));
-		 printf("\n");
-		 }
-		 */
 	return 0;
 }
