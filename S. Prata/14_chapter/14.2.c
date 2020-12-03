@@ -38,32 +38,32 @@ struct month months[12] = {
 		{"December", "dec", 31, "12"}
 	};
 int days(int day, char *monthName, int year);
-char * s_gets(char * st, int n);
+
+
+
 bool LeapYear(int year);
 
 int main(int argc, char **argv)
 {
+	int temp;
 	int day;
 	int year;
 	char monthName[10];
-	
-	printf("%d", true);
-	
+
 	printf("Enter day = ");
 	scanf("%d", &day);
+
+	printf("Enter month number, a month name, or a month abbreviation = ");
+	scanf("%s", monthName);
 	
 	while (getchar() != '\n') //Clear input from \n
 			continue;
 	
-	printf("Enter month number, a month name, or a month abbreviation = ");
-	s_gets(monthName, 10);
-	
 	printf("Enter year = ");
 	scanf("%d", &year);
 	
-	printf("%d", days(day, monthName, year));
+	printf("Number days = %d \n", days(day, monthName, year));
 	
-	printf("%d", LeapYear(year));
 	return 0;
 }
 
@@ -72,6 +72,8 @@ int days(int day, char *monthName, int year)
 {
 	
 	int index, total;
+	if (LeapYear(year))
+	months[1].days = 29;
 	
 	for (int i = 0; i <= 12; i++)
 	{
@@ -81,29 +83,13 @@ int days(int day, char *monthName, int year)
 		{
 			for (index = 0, total = 0; index < i; index ++)
 			total += months[index].days;
-			return(total);
+			return(total + day);
 		}
 	}
 	return(-1);
 }
 
-char * s_gets(char * st, int n)
-{
-	char * ret_val;
-	char * find;
-	ret_val = fgets(st, n, stdin);
-	if (ret_val)
-	{
-		find = strchr(st, '\n'); 	// look for newline
-		if (find) 					// if the address is not NULL,
-			*find = '\0'; 			// place a null character there
-		else
-		while (getchar() != '\n')
-			continue; 				// dispose of rest of line
-	}
-	return ret_val;
-} 
-bool LeapYear(int year)
+bool LeapYear(int year) //definituon leap year
 {
 	if (year % 4 != 0)
 		return false;
