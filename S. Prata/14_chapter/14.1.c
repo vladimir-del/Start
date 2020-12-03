@@ -40,8 +40,9 @@ int days(char *monthName);
 int main(int argc, char **argv)
 {
 	char monthName[10];
-	puts("Enter abbr month");
-	fgets(monthName, 10, stdin);
+	printf("Enter abbr month = ");
+	
+	scanf("%s", monthName);
 	
 	printf("%d", days(monthName));
 	
@@ -51,20 +52,16 @@ int main(int argc, char **argv)
 
 int days(char *monthName)
 {
-	
 	int index, total;
 	
 	for (int i = 0; i <= 12; i++)
 	{
-		if ((strcmp(monthName, months[i].month)) == NULL)
+		if ((strcmp(monthName, months[i].month)) == 0)
 		{
 			for (index = 0, total = 0; index < i; index ++)
 			total += months[index].days;
 			return(total);
 		}
-		
-		else
-		return(-1);
 	}
-
+	return(-1);
 }
