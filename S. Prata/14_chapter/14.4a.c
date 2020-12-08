@@ -45,7 +45,7 @@ int main(void)
 	
 	struct data work[5] = 
 	{
-		302039, {"vladimir", "viktorovich", "draga"},
+		302039, {"Vladimir", "viktorovich", "draga"},
 		
 		302039,
 		{"denis", "egtrs", "fuk"},
