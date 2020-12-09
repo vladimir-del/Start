@@ -40,6 +40,8 @@ struct data{
 
 void PrintStruct(const struct data);
 
+char * s_gets(char * st, int n);
+
 int main(void)
 {
 	

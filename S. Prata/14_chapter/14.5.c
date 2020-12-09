@@ -39,7 +39,7 @@ g. Print the class average for each of the numeric structure members.
 
 struct name {
     char FirstName[MAXNAME];
-    char SecondName[MAXNAME];
+    char LastName[MAXNAME];
 };
 
 struct student {
@@ -48,6 +48,9 @@ struct student {
     float AverageGrade;
 };
 
+int getname(struct student *);
+void printstruct(const struct student *, int n);
+char * s_gets(char * st, int n);
 
 int main(void)
 {
@@ -58,7 +61,60 @@ int main(void)
         {"Ivan", "Petriv"},
         {"Oleg", "Sidorov"},
 };
-	
-	
+
+
+printstruct(CSIZE, 4);
+
+printf("%d", getname(CSIZE));
+
+
 	return 0;
+}
+
+void printstruct(const struct student *s, int n)
+{
+    puts("Your class and grade");
+    for (int i = 0; i < n; i++)
+    {
+    printf("Name Student:%s %s\n", (s+i)->name.FirstName, (s+i)->name.LastName);
+    printf("His grades:%0.1f, %0.1f, %0.1f\n", (s+i)->grade[0],(s+i)->grade[1], (s+i)->grade[2]);
+    puts("");
+    }
+}
+
+char * s_gets(char * st, int n)
+{
+	char * ret_val;
+	char * find;
+
+	ret_val = fgets(st, n, stdin);
+
+	if (ret_val)
+	{
+		find = strchr(st, '\n');
+		if (find)
+			*find = '\0';
+		else
+			while (getchar() != '\n')
+		continue;
+	}
+	return ret_val;
+}
+
+int getname(struct student *s)
+{
+    int i = 0;
+    char inputname[MAXNAME];
+    printf("Enter student`s Lastname:");
+    //fgets(inputname, MAXNAME, stdin);
+    //s_gets(inputname, MAXNAME);
+    scanf("%s", inputname);
+    for (; i < 4; i++)
+    {
+        if (strcmp(inputname, (s + i)->name.LastName) == 0)
+        {
+            return i;
+        }   
+    }
+    return -1;
 }
