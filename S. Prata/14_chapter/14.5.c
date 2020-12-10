@@ -44,7 +44,6 @@ struct student {
 int getname(struct student *);
 void inputgrades(struct student *);
 void printstruct(const struct student *, int n);
-char * s_gets(char * st, int n);
 void averagegrade(struct student *);
 
 int main(void)
@@ -80,24 +79,6 @@ void printstruct(const struct student *s, int n)
     }
 }
 
-char * s_gets(char * st, int n)
-{
-	char * ret_val;
-	char * find;
-
-	ret_val = fgets(st, n, stdin);
-
-	if (ret_val)
-	{
-		find = strchr(st, '\n');
-		if (find)
-			*find = '\0';
-		else
-			while (getchar() != '\n')
-		continue;
-	}
-	return ret_val;
-}
 
 int getname(struct student *s)
 {
@@ -119,11 +100,13 @@ int getname(struct student *s)
 
 void inputgrades(struct student *s)
 {
-	int n = getname(s);
+    int n = getname(s);
+	if (n == -1)
+    return;
 	printf("input three grades:\n");
 	for (int i = 0; i < 3; i++)
 	{
-		printf("Grade %d = ");
+		printf("Grade %d = ",i);
 		scanf("%f", &(s + n)->grade[i]);
 	}
 	averagegrade(s);
