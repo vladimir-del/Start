@@ -11,8 +11,6 @@ argument. Test the function in a program.
 */
 
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 #define BIT 8
 
